@@ -8,65 +8,70 @@
 
 import UIKit
 
+var _currentUser: User?
+let currentUserKey = "kCurrentUserKey"
+let userDidLoginNotification = "userDidLoginNotification"
+let userDidLogoutNotification = "userDidLogoutNotification"
+
 class User: NSObject {
     
-    var name: NSString?
-    var screenname: NSString?
-    var profileUrl: NSURL?
-    var tagline: NSString?
-    
-    var dictionary: NSDictionary?
+    var name: String?
+    var screenname: String?
+    var profileImageUrl: String?
+    var tagline: String?
+    var dictionary: NSDictionary
     
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
         
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
-        
-        let profileUrlString = dictionary["profile_image_url_https"] as? String
-        if let profileUrlString = profileUrlString {
-            profileUrl = NSURL(string: profileUrlString)
-        }
-        
+        profileImageUrl = dictionary["description"] as? String
         tagline = dictionary["description"] as? String
-    
     }
     
-    static let userDidLogoutNotification = "UserDidLogout"
-    
-    static var _currentUser: User?
-    
-    
+    func logout() {
+        User.currentUser = nil
+        TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
+    }
+
     class var currentUser: User? {
         get {
             if _currentUser == nil {
                 let defaults = NSUserDefaults.standardUserDefaults()
-            
-                let userData = defaults.objectForKey("currentUserData") as? NSData
+                let userData = defaults.objectForKey(currentUserKey) as? NSData
         
-                if let userData = userData {
-                    let dictionary = try! NSJSONSerialization.JSONObjectWithData(userData, options: []) as! NSDictionary
-                _currentUser = User(dictionary: dictionary)
+                if userData != nil {
+                    let dictionary: NSDictionary?
+                    
+                    do {
+                        try dictionary = NSJSONSerialization.JSONObjectWithData(userData!, options: .MutableContainers) as? NSDictionary
+                        _currentUser = User(dictionary: dictionary!)
+                    } catch {
+                        print(error)
+                    }
                 }
             }
-            
             return _currentUser
         }
+        
         set(user) {
             _currentUser = user
-            
-            let defaults = NSUserDefaults.standardUserDefaults()
-            
-            if let user = user {
-                let data = try! NSJSONSerialization.dataWithJSONObject(user.dictionary!, options: [])
-                
-                defaults.setObject(data, forKey: "currentUserData")
+            //User needs to implement NSCoding but JSON has it serialized by default
+            if let _ = _currentUser {
+                var userData: NSData?
+                do {
+                    try userData = NSJSONSerialization.dataWithJSONObject(user!.dictionary, options: .PrettyPrinted)
+                    NSUserDefaults.standardUserDefaults().setObject(userData, forKey: currentUserKey)
+                } catch {
+                    print(error)
+                }
             } else {
-                defaults.setObject(nil, forKey: "currentUserData")
+                NSUserDefaults.standardUserDefaults().setObject(nil, forKey: currentUserKey)
             }
-
-            
-            defaults.synchronize()
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
 }

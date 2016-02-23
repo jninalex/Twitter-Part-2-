@@ -8,34 +8,38 @@
 
 import UIKit
 import BDBOAuth1Manager
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+        
+        
         if User.currentUser != nil {
-            print("There is a current user")
+            // Go to the logged in screen
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController")
-            
+            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
             window?.rootViewController = vc
-        }
-        
-        NSNotificationCenter.defaultCenter().addObserverForName(User.userDidLogoutNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (NSNotification) -> Void in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateInitialViewController()
             
-            self.window?.rootViewController = vc
         }
-        
         return true
     }
+    
+    func userDidLogout() {
+        var vc = storyboard.instantiateInitialViewController()! as UIViewController
+        window?.rootViewController = vc
+        
+        
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -61,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         
-        TwitterClient.sharedInstance.handleOpenUrl(url)
+        TwitterClient.sharedInstance.openURL(url)
         
         return true
     }

@@ -19,38 +19,15 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
         
-       TwitterClient.sharedInstance.homeTimeLine({ (tweets: [Tweet]) -> () in
+        
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
             
-            for tweet in tweets {
-                print(tweet.text)
-            }
-        }, failure: { (error: NSError) -> () in
-                print(error.localizedDescription)
-        })
-
-//        client.currentAccount()
-        // Do any additional setup after loading the view.
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tweets != nil {
-            return tweets!.count
-        } else {
-            return 0
+            self.tableView.reloadData()
         }
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! TweetCell
-        
-//        cell.nameLabel.text = tweets![indexPath.row].user!.name
-        cell.screennameLabel.text = "@\(tweets![indexPath.row].user!.screenname!)"
-        cell.tweetLabel.text = tweets![indexPath.row].text
-//        cell.profilePhotoView.setImageWithURL(NSURL(string: tweets![indexPath.row].user!.profileUrl!)!)
-        
-        return cell
     }
     
 
@@ -60,9 +37,39 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func onLogoutButton(sender: AnyObject) {
-        TwitterClient.sharedInstance.logout()
+        User.currentUser?.logout()
     }
 
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
+            let tweetInfo = tweets![indexPath.row]
+            cell.profilePhotoView.setImageWithURL(NSURL(string: (tweetInfo.user?.profileImageUrl)!)!)
+            cell.nameLabel.text = tweetInfo.user?.name
+            cell.screennameLabel.text = "@" + (tweetInfo.user?.screenname)!
+            cell.timestampLabel.text = tweetInfo.createdAt
+            cell.tweetLabel.text = tweetInfo.text
+//            cell.retweetCountLabel.text = tweetInfo.retweetCount!
+//            cell.favoriteCountLabel.text = tweetInfo.favoriteCount!
+//            cell.tweetId = tweetInfo.tweetId
+//            cell.reTweetButton.setTitle(tweetInfo.tweetId, forState: .Normal)
+//            cell.favoriteButton.setTitle(tweetInfo.tweetId, forState: .Normal)
+            
+            return cell
+        }
+        
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            if let tweets = tweets {
+                return tweets.count
+            } else {
+                return 0
+            }
+            
+            
+        }
+        
+    
+
+    
     
     
     /*

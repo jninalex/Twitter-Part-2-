@@ -15,6 +15,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var screennameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
+    var tweetId: String!
     
     
     
