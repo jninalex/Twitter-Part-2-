@@ -26,8 +26,8 @@ class User: NSObject {
         
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
-        profileImageUrl = dictionary["description"] as? String
-        tagline = dictionary["description"] as? String
+        profileImageUrl = dictionary["profile_image_url_https"] as? String
+//        tagline = dictionary["description"] as? String
     }
     
     func logout() {

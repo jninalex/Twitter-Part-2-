@@ -22,11 +22,16 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         
+        // Initialize a UIRefreshControl
+/*        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0) */
         
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+       TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
             
             self.tableView.reloadData()
+            
         }
     }
     
@@ -39,38 +44,61 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func onLogoutButton(sender: AnyObject) {
         User.currentUser?.logout()
     }
-
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
-            let tweetInfo = tweets![indexPath.row]
-            cell.profilePhotoView.setImageWithURL(NSURL(string: (tweetInfo.user?.profileImageUrl)!)!)
-            cell.nameLabel.text = tweetInfo.user?.name
-            cell.screennameLabel.text = "@" + (tweetInfo.user?.screenname)!
-            cell.timestampLabel.text = tweetInfo.createdAt
-            cell.tweetLabel.text = tweetInfo.text
-//            cell.retweetCountLabel.text = tweetInfo.retweetCount!
-//            cell.favoriteCountLabel.text = tweetInfo.favoriteCount!
-//            cell.tweetId = tweetInfo.tweetId
-//            cell.reTweetButton.setTitle(tweetInfo.tweetId, forState: .Normal)
-//            cell.favoriteButton.setTitle(tweetInfo.tweetId, forState: .Normal)
-            
+        
+        cell.selectionStyle = .None
+        cell.tweet = tweets![indexPath.row]
+        
             return cell
         }
         
-        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             if let tweets = tweets {
                 return tweets.count
             } else {
                 return 0
             }
-            
-            
         }
         
     
-
+/*    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        // ... Create the NSURLRequest (myRequest) ...
+        
+        // Configure session so that completion handler is executed on main UI thread
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate:nil,
+            delegateQueue:NSOperationQueue.mainQueue()
+        )
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(myRequest,
+            completionHandler: { (data, response, error) in
+                
+                // ... Use the new data to update the data source ...
+                
+                // Reload the tableView now that there is new data
+                self.tableView.reloadData()
+                
+                // Tell the refreshControl to stop spinning
+                refreshControl.endRefreshing()	
+        });
+        task.resume()
+    } */
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let tweet = tweets![indexPath!.row]
+        
+        let detailsViewController = segue.destinationViewController as! DetailsViewController
+        detailsViewController.tweets = tweet
+        
+        print("prepare for segue called")
+    }
     
     /*
     // MARK: - Navigation
