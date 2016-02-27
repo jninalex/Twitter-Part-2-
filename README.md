@@ -62,7 +62,7 @@ This project was very difficult for me.
 
 # Project 5 - *Twitter*
 
-Time spent: **6** hours spent in total
+Time spent: **16** hours spent in total
 
 ## User Stories
 
