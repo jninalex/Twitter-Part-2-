@@ -72,7 +72,7 @@ The following **required** functionality is completed:
 - [ ] Profile page:
    - [ ] Contains the user header view
    - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
-- [ ] Home Timeline: Tapping on a user image should bring up that user's profile page
+- [x] Home Timeline: Tapping on a user image should bring up that user's profile page
 - [x] Compose Page: User can compose a new tweet by tapping on a compose button.
 
 The following **optional** features are implemented:
@@ -95,8 +95,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. 
-2. 
+1. Other way for implementing segue for required functionality #3
+2. How to do other optionals
 
 ## Video Walkthrough 
 
