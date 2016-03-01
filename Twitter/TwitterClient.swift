@@ -25,7 +25,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         return Static.instance
     }
     
-/*    func userTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+    func userTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/user_timeline.json", parameters: params, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
             
             var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
@@ -35,7 +35,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                 print("error getting user profile)")
                 completion(tweets: nil, error: error)
         })
-    } */
+    }
     
     
     func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
@@ -105,34 +105,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         print(requestUrl)
         POST(requestUrl, parameters: nil, success: nil, failure: nil)
     }
-    
-/*    func refreshControlAction(refreshControl: UIRefreshControl) {
-        
-        // ... Create the NSURLRequest (myRequest) ...
-        let myRequest = loginWithCompletion { (completion: (user: User?, error: NSError?) -> ()) in
-            loginCompletion = completion
-        }
-        
-        // Configure session so that completion handler is executed on main UI thread
-        let session = NSURLSession(
-            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
-            delegate:nil,
-            delegateQueue:NSOperationQueue.mainQueue()
-        )
-        
-        let task : NSURLSessionDataTask = session.dataTaskWithRequest(myRequest,
-            completionHandler: { (data, response, error) in
-                
-                // ... Use the new data to update the data source ...
-                
-                // Reload the tableView now that there is new data
-                self.tableView.reloadData()
-                
-                // Tell the refreshControl to stop spinning
-                refreshControl.endRefreshing()
-        });
-        task.resume()
-    } */
 
 
 }

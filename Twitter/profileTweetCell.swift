@@ -83,7 +83,7 @@ class ProfileTweetCell: UITableViewCell {
             sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Normal)
             if favoriteCountLabel.text == "0" {
                 favoriteCountLabel.hidden = false
-            }
+            } 
             favoriteCountLabel.text = String(tweet.favoritesCount!+1)
         } else {
             favorited = false

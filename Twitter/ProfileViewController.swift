@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController /*  UITableViewDelegate, UITableViewDataSource */{
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tweets: [Tweet]!
     
@@ -37,24 +37,25 @@ class ProfileViewController: UIViewController /*  UITableViewDelegate, UITableVi
         tableView.rowHeight = UITableViewAutomaticDimension */
         
         
-/*        TwitterClient.sharedInstance.userTimelineWithParams(nil) { (tweets, error) -> () in
+        TwitterClient.sharedInstance.userTimelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
             
             self.tableView.reloadData()
             
-        } */
+        }
         
         self.settingsButtonView.layer.borderColor = UIColor.blackColor().CGColor
         self.settingsButtonView.layer.cornerRadius = 5
         self.settingsButtonView.clipsToBounds = true
         
-/*        profilePhotoView.layer.cornerRadius = 5
+        profilePhotoView.layer.cornerRadius = 5
         profilePhotoView.clipsToBounds = true
         
-        profilePhotoView.setImageWithURL(NSURL(string:(tweets.user?.profileImageUrl)!)!)
+//        profilePhotoView.setImageWithURL(NSURL(string:(tweets.user!.profileImageUrl)!)!)
         
-        favoriteCountLabel.text = "\(tweets.favoritesCount!)"
-        retweetCountLabel.text = "\(tweets.retweetCount!)"
+        
+//        favoriteCountLabel.text = "\(tweets.favoritesCount!)"
+//        retweetCountLabel.text = "\(tweets.retweetCount!)"
         
         if favoriteCountLabel.text == "0" {
             favoriteCountLabel.hidden = true
@@ -76,7 +77,7 @@ class ProfileViewController: UIViewController /*  UITableViewDelegate, UITableVi
             retweetLabel.text = "RETWEET"
         } else {
             retweetLabel.text = "RETWEETS"
-        } */
+        }
 
     }
     
@@ -86,7 +87,7 @@ class ProfileViewController: UIViewController /*  UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-/*    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ProfileTweetCell", forIndexPath: indexPath) as! ProfileTweetCell
         
         cell.selectionStyle = .None
@@ -101,7 +102,7 @@ class ProfileViewController: UIViewController /*  UITableViewDelegate, UITableVi
         } else {
             return 0
         }
-    } */
+    }
 
     
 

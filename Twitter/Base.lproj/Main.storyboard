@@ -147,6 +147,9 @@
                                                         <constraint firstAttribute="width" constant="45" id="CDA-ce-08r"/>
                                                         <constraint firstAttribute="height" constant="45" id="aOm-fG-kUD"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <segue destination="CFs-xw-86z" kind="push" id="cXE-4p-CIr"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -223,7 +226,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="2wU-lw-i3Q" id="3do-Rt-Nuz"/>
-                        <segue destination="CFs-xw-86z" kind="push" identifier="profileSegue" id="HMd-Do-a07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcn-rI-jPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,13 +244,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJc-bL-0Ns">
-                                <rect key="frame" x="0.0" y="66" width="320" height="170"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tJc-bL-0Ns">
+                                <rect key="frame" x="0.0" y="64" width="320" height="172"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ejV-oO-gyP">
                                 <rect key="frame" x="140" y="199" width="39" height="37"/>
                             </pageControl>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JsJ-6Z-rmb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JsJ-6Z-rmb">
                                 <rect key="frame" x="123" y="88" width="75" height="75"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tJ1-Kj-PeM">
@@ -282,7 +284,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RETWEETS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez0-mF-vMP">
-                                                <rect key="frame" x="15" y="34" width="55" height="12"/>
+                                                <rect key="frame" x="15" y="34" width="54.5" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -320,7 +322,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="qpj-KD-P0D" firstAttribute="top" secondItem="TG3-wP-Lll" secondAttribute="bottom" constant="8" id="F4b-0q-jd8"/>
-                                            <constraint firstItem="qpj-KD-P0D" firstAttribute="leading" secondItem="lZj-Hj-BEk" secondAttribute="trailing" constant="8" id="Fct-hl-EBA"/>
+                                            <constraint firstItem="qpj-KD-P0D" firstAttribute="leading" secondItem="lZj-Hj-BEk" secondAttribute="trailing" constant="15" id="Fct-hl-EBA"/>
                                             <constraint firstAttribute="bottom" secondItem="qpj-KD-P0D" secondAttribute="bottom" constant="9" id="j4e-FO-STR"/>
                                             <constraint firstItem="TG3-wP-Lll" firstAttribute="leading" secondItem="lZj-Hj-BEk" secondAttribute="trailing" constant="15" id="pG5-7l-vsl"/>
                                             <constraint firstItem="TG3-wP-Lll" firstAttribute="top" secondItem="j82-S6-yze" secondAttribute="top" constant="14" id="ta0-Ze-ek4"/>
@@ -352,7 +354,7 @@
                                             <constraint firstItem="Eis-OG-CE6" firstAttribute="leading" secondItem="EIO-Of-7Eg" secondAttribute="trailing" constant="15" id="GgD-7y-WMF"/>
                                             <constraint firstItem="Eis-OG-CE6" firstAttribute="top" secondItem="t57-9z-49E" secondAttribute="bottom" constant="8" id="aWW-rj-3oP"/>
                                             <constraint firstItem="t57-9z-49E" firstAttribute="top" secondItem="uis-54-b1G" secondAttribute="top" constant="14" id="dnt-JL-7II"/>
-                                            <constraint firstItem="t57-9z-49E" firstAttribute="leading" secondItem="EIO-Of-7Eg" secondAttribute="trailing" constant="8" id="gpf-GA-cj4"/>
+                                            <constraint firstItem="t57-9z-49E" firstAttribute="leading" secondItem="EIO-Of-7Eg" secondAttribute="trailing" constant="15" id="gpf-GA-cj4"/>
                                         </constraints>
                                     </view>
                                 </subviews>

@@ -24,7 +24,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Initialize a UIRefreshControl
        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshTweets:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: "refreshTimeline:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
         
        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
@@ -57,6 +57,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.selectionStyle = .None
         cell.tweet = tweets![indexPath.row]
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: cell, action: "onProfileImageTap:")
+        cell.profilePhotoView.addGestureRecognizer(tapGestureRecognizer)
+        
             return cell
         }
         
@@ -70,7 +73,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
         
     
-    func refreshTweets(refreshControl: UIRefreshControl) {
+    func refreshTimeline(refreshControl: UIRefreshControl) {
         
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
@@ -88,7 +91,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 /*        let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
         let tweet = tweets![indexPath!.row] */
-//        if segue.identifier == "MoreDetailsSegue" {
+        if segue.identifier == "MoreDetailsSegue" {
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)
             let tweet = tweets![indexPath!.row]
@@ -96,14 +99,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let detailsViewController = segue.destinationViewController as! DetailsViewController
             detailsViewController.tweets = tweet
            
-/*        } else if segue.identifier == "profileSegue" {
-            let cell = sender as! UITableViewCell
-            let indexPath = tableView.indexPathForCell(cell)
-            let tweet = tweets![indexPath!.row]
-            
+        } else if segue.identifier == "ProfileSegue" {
+            let tweet = tweets!
             let profileViewController = segue.destinationViewController as! ProfileViewController
             profileViewController.tweets = tweet
-        } */
+        }
          print("prepare for segue called")
     }
     
