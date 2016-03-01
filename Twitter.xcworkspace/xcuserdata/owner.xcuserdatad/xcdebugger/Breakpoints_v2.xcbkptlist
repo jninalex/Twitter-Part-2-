@@ -118,26 +118,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Twitter.ProfileViewController.accountsButton.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIButton&gt;"
-                  moduleName = "Twitter"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/owner/Documents/Coding/Xcode/Twitter/Twitter/ProfileViewController.swift"
-                  timestampString = "478468178.145275"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
                   symbolName = "Twitter.ProfileViewController.accountsButton.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIButton&gt;"
                   moduleName = "Twitter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/owner/Documents/Coding/Xcode/Twitter/Twitter/ProfileViewController.swift"
-                  timestampString = "478468178.145427"
+                  timestampString = "478488200.515683"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -152,7 +137,7 @@
                   moduleName = "Twitter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/owner/Documents/Coding/Xcode/Twitter/Twitter/ProfileViewController.swift"
-                  timestampString = "478468178.145553"
+                  timestampString = "478488200.516145"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -167,7 +152,7 @@
                   moduleName = "Twitter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/owner/Documents/Coding/Xcode/Twitter/Twitter/ProfileViewController.swift"
-                  timestampString = "478468178.14567"
+                  timestampString = "478488200.516506"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
@@ -182,7 +167,7 @@
                   moduleName = "Twitter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/owner/Documents/Coding/Xcode/Twitter/Twitter/ProfileViewController.swift"
-                  timestampString = "478468178.145793"
+                  timestampString = "478488200.516894"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
@@ -300,6 +285,22 @@
             startingLineNumber = "103"
             endingLineNumber = "103"
             landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twitter/DetailsViewController.swift"
+            timestampString = "478488183.19083"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "onRetweet(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

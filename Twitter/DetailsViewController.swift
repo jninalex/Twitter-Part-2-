@@ -51,11 +51,23 @@ class DetailsViewController: UIViewController {
         if favoriteCountLabel.text == "0" {
             favoriteCountLabel.hidden = true
             favoriteLabel.hidden = true
+        } else if favoriteCountLabel.text == "1" {
+            favoriteCountLabel.hidden = false
+            favoriteLabel.hidden = false
+            favoriteLabel.text = "FAVORITE"
+        } else {
+            favoriteLabel.text = "FAVORITES"
         }
         
         if retweetCountLabel.text == "0" {
             retweetCountLabel.hidden = true
             retweetLabel.hidden = true
+        } else if retweetCountLabel.text == "1" {
+            retweetCountLabel.hidden = false
+            retweetLabel.hidden = false
+            retweetLabel.text = "RETWEET"
+        } else {
+            retweetLabel.text = "RETWEETS"
         }
         
     }
