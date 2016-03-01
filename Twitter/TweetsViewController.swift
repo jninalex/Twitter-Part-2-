@@ -23,9 +23,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 120
         
         // Initialize a UIRefreshControl
-/*        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(refreshControl, atIndex: 0) */
+       let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshTweets:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
         
        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
@@ -70,30 +70,18 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
         
     
-/*    func refreshControlAction(refreshControl: UIRefreshControl) {
+    func refreshTweets(refreshControl: UIRefreshControl) {
         
-        // ... Create the NSURLRequest (myRequest) ...
-        
-        // Configure session so that completion handler is executed on main UI thread
-        let session = NSURLSession(
-            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
-            delegate:nil,
-            delegateQueue:NSOperationQueue.mainQueue()
-        )
-        
-        let task : NSURLSessionDataTask = session.dataTaskWithRequest(myRequest,
-            completionHandler: { (data, response, error) in
-                
-                // ... Use the new data to update the data source ...
-                
-                // Reload the tableView now that there is new data
-                self.tableView.reloadData()
-                
-                // Tell the refreshControl to stop spinning
-                refreshControl.endRefreshing()	
-        });
-        task.resume()
-    } */
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+            self.tweets = tweets
+            
+            // Reload the tableView now that there is new data
+            self.tableView.reloadData()
+            
+            // Tell the refreshControl to stop spinning
+            refreshControl.endRefreshing()
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

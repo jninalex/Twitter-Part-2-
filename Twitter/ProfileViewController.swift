@@ -47,6 +47,36 @@ class ProfileViewController: UIViewController /*  UITableViewDelegate, UITableVi
         self.settingsButtonView.layer.borderColor = UIColor.blackColor().CGColor
         self.settingsButtonView.layer.cornerRadius = 5
         self.settingsButtonView.clipsToBounds = true
+        
+/*        profilePhotoView.layer.cornerRadius = 5
+        profilePhotoView.clipsToBounds = true
+        
+        profilePhotoView.setImageWithURL(NSURL(string:(tweets.user?.profileImageUrl)!)!)
+        
+        favoriteCountLabel.text = "\(tweets.favoritesCount!)"
+        retweetCountLabel.text = "\(tweets.retweetCount!)"
+        
+        if favoriteCountLabel.text == "0" {
+            favoriteCountLabel.hidden = true
+            favoriteLabel.hidden = true
+        } else if favoriteCountLabel.text == "1" {
+            favoriteCountLabel.hidden = false
+            favoriteLabel.hidden = false
+            favoriteLabel.text = "FAVORITE"
+        } else {
+            favoriteLabel.text = "FAVORITES"
+        }
+        
+        if retweetCountLabel.text == "0" {
+            retweetCountLabel.hidden = true
+            retweetLabel.hidden = true
+        } else if retweetCountLabel.text == "1" {
+            retweetCountLabel.hidden = false
+            retweetLabel.hidden = false
+            retweetLabel.text = "RETWEET"
+        } else {
+            retweetLabel.text = "RETWEETS"
+        } */
 
     }
     
