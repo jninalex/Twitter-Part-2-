@@ -2,7 +2,7 @@
 
 Twitter is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **20** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -62,7 +62,7 @@ This project was very difficult for me.
 
 # Project 5 - *Twitter*
 
-Time spent: **16** hours spent in total
+Time spent: **21** hours spent in total
 
 ## User Stories
 
