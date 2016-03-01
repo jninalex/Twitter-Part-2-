@@ -10,8 +10,9 @@
 		7D23A62F02A414274CC93141 /* Pods_Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9975143E45F0CEEBFF103C5A /* Pods_Twitter.framework */; };
 		EB1819A41C7AB9FF00AD63B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1819A31C7AB9FF00AD63B4 /* User.swift */; };
 		EB1819A61C7ABA0900AD63B4 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1819A51C7ABA0900AD63B4 /* Tweet.swift */; };
-		EB5F493A1C7FD7210081E8A3 /* CreateTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F49391C7FD7210081E8A3 /* CreateTweetViewController.swift */; };
-		EB5F493D1C8023DC0081E8A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5F493B1C8023DC0081E8A3 /* Main.storyboard */; };
+		EB5F493F1C8027DD0081E8A3 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F493E1C8027DD0081E8A3 /* ComposeViewController.swift */; };
+		EB5F49431C81976A0081E8A3 /* ProfileTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F49421C81976A0081E8A3 /* ProfileTweetCell.swift */; };
+		EB5F49451C82991F0081E8A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5F49441C82991F0081E8A3 /* Main.storyboard */; };
 		EB75018A1C7ADC7300FF55FB /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7501891C7ADC7300FF55FB /* TwitterClient.swift */; };
 		EBBD7E3E1C7B7DE400900C51 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBD7E3D1C7B7DE400900C51 /* TweetsViewController.swift */; };
 		EBCFE0D71C7BEA4400A384A0 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFE0D61C7BEA4400A384A0 /* TweetCell.swift */; };
@@ -28,8 +29,9 @@
 		9975143E45F0CEEBFF103C5A /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1819A31C7AB9FF00AD63B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EB1819A51C7ABA0900AD63B4 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
-		EB5F49391C7FD7210081E8A3 /* CreateTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTweetViewController.swift; sourceTree = "<group>"; };
-		EB5F493C1C8023DC0081E8A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB5F493E1C8027DD0081E8A3 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		EB5F49421C81976A0081E8A3 /* ProfileTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTweetCell.swift; sourceTree = "<group>"; };
+		EB5F49441C82991F0081E8A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB7501891C7ADC7300FF55FB /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		EBBD7E3D1C7B7DE400900C51 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		EBCFE0D61C7BEA4400A384A0 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
@@ -89,7 +91,7 @@
 				EBBD7E3D1C7B7DE400900C51 /* TweetsViewController.swift */,
 				EBF54BA81C7ED92F00E4C49A /* DetailsViewController.swift */,
 				EBF54BAA1C7EE0BA00E4C49A /* ProfileViewController.swift */,
-				EB5F49391C7FD7210081E8A3 /* CreateTweetViewController.swift */,
+				EB5F493E1C8027DD0081E8A3 /* ComposeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				EBCFE0D61C7BEA4400A384A0 /* TweetCell.swift */,
+				EB5F49421C81976A0081E8A3 /* ProfileTweetCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -136,7 +139,7 @@
 				EB1819A11C7AB9BC00AD63B4 /* View Controllers */,
 				EB1819A01C7AB9B000AD63B4 /* Models */,
 				EBDB96131C76A41400F82EFC /* AppDelegate.swift */,
-				EB5F493B1C8023DC0081E8A3 /* Main.storyboard */,
+				EB5F49441C82991F0081E8A3 /* Main.storyboard */,
 				EBDB961A1C76A41400F82EFC /* Assets.xcassets */,
 				EBDB961C1C76A41400F82EFC /* LaunchScreen.storyboard */,
 				EBDB961F1C76A41400F82EFC /* Info.plist */,
@@ -205,7 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB5F493D1C8023DC0081E8A3 /* Main.storyboard in Resources */,
+				EB5F49451C82991F0081E8A3 /* Main.storyboard in Resources */,
 				EBDB961E1C76A41400F82EFC /* LaunchScreen.storyboard in Resources */,
 				EBDB961B1C76A41400F82EFC /* Assets.xcassets in Resources */,
 			);
@@ -271,8 +274,9 @@
 				EB1819A61C7ABA0900AD63B4 /* Tweet.swift in Sources */,
 				EBF54BA91C7ED92F00E4C49A /* DetailsViewController.swift in Sources */,
 				EBDB96261C76A60300F82EFC /* LoginViewController.swift in Sources */,
+				EB5F49431C81976A0081E8A3 /* ProfileTweetCell.swift in Sources */,
 				EBBD7E3E1C7B7DE400900C51 /* TweetsViewController.swift in Sources */,
-				EB5F493A1C7FD7210081E8A3 /* CreateTweetViewController.swift in Sources */,
+				EB5F493F1C8027DD0081E8A3 /* ComposeViewController.swift in Sources */,
 				EBF54BAB1C7EE0BA00E4C49A /* ProfileViewController.swift in Sources */,
 				EB75018A1C7ADC7300FF55FB /* TwitterClient.swift in Sources */,
 				EBDB96141C76A41400F82EFC /* AppDelegate.swift in Sources */,
@@ -282,14 +286,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EB5F493B1C8023DC0081E8A3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EB5F493C1C8023DC0081E8A3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EBDB961C1C76A41400F82EFC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

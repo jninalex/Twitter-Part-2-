@@ -24,16 +24,19 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var statsView: UIView!
     
     var retweeted = false
     var favorited = false
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         profilePhotoView.layer.cornerRadius = 5
         profilePhotoView.clipsToBounds = true
+        
+        statsView.layer.borderColor = UIColor.blackColor().CGColor
         
         profilePhotoView.setImageWithURL(NSURL(string:(tweets.user?.profileImageUrl)!)!)
         nameLabel.text = tweets.user!.name!
@@ -49,10 +52,12 @@ class DetailsViewController: UIViewController {
             favoriteCountLabel.hidden = true
             favoriteLabel.hidden = true
         }
+        
         if retweetCountLabel.text == "0" {
             retweetCountLabel.hidden = true
             retweetLabel.hidden = true
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +72,10 @@ class DetailsViewController: UIViewController {
             if retweetCountLabel.text == "0" {
                 retweetCountLabel.hidden = false
                 retweetLabel.hidden = false
+            } else if retweetCountLabel.text == "1" {
+                retweetCountLabel.hidden = false
+                retweetLabel.hidden = false
+                retweetLabel.text = "RETWEET"
             }
             retweetCountLabel.text = String(tweets.retweetCount!+1)
         } else {
@@ -84,6 +93,10 @@ class DetailsViewController: UIViewController {
             if favoriteCountLabel.text == "0" {
                 favoriteCountLabel.hidden = false
                 favoriteLabel.hidden = false
+            } else if favoriteCountLabel.text == "1" {
+                favoriteCountLabel.hidden = false
+                favoriteLabel.hidden = false
+                favoriteLabel.text = "FAVORITE"
             }
             favoriteCountLabel.text = String(tweets.favoritesCount!+1)
         } else {
@@ -94,16 +107,31 @@ class DetailsViewController: UIViewController {
 
     }
     
+    @IBAction func cancelComposedTweet(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func saveComposedTweet(segue:UIStoryboardSegue) {
+    }
+    
    
     
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ComposeNewTweetSegue" {
+        let tweet = tweets!
+        
         // Get the new view controller using segue.destinationViewController.
+        let composeViewController = segue.destinationViewController as! ComposeViewController
+            
         // Pass the selected object to the new view controller.
+        composeViewController.tweets = tweet
+        }
+       
     }
-    */
+    
 
 }

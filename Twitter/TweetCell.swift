@@ -43,6 +43,10 @@ class TweetCell: UITableViewCell {
         }
     }
 
+/*    func profilePhotoTapped() {
+        print("profile photo tapped")
+        delegate?.tweet
+    } */
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,6 +54,11 @@ class TweetCell: UITableViewCell {
         
         profilePhotoView.layer.cornerRadius = 5
         profilePhotoView.clipsToBounds = true
+        
+        // add gesture recognizer
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.addTarget(self, action: "imageViewTapped:")
+        profilePhotoView.addGestureRecognizer(tapGestureRecognizer)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -87,4 +96,9 @@ class TweetCell: UITableViewCell {
             retweetCountLabel.text = String(tweet.retweetCount!)
         }
     }
+    
+    
+/*    @objc protocol TweetCellDelegate: class {
+        optional func tweetCellProfilePhotoTapped(cell: TweetCell, forTwitterUser user: User?)
+    } */
 }

@@ -33,6 +33,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.tableView.reloadData()
             
         }
+        
+/*        let logo = UIImage(named: "Twitter_logo_blue_48")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView */
+
     }
     
 
@@ -62,6 +67,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 return 0
             }
         }
+    
         
     
 /*    func refreshControlAction(refreshControl: UIRefreshControl) {
@@ -90,14 +96,27 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     } */
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as! UITableViewCell
+        
+/*        let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
-        let tweet = tweets![indexPath!.row]
-        
-        let detailsViewController = segue.destinationViewController as! DetailsViewController
-        detailsViewController.tweets = tweet
-        
-        print("prepare for segue called")
+        let tweet = tweets![indexPath!.row] */
+//        if segue.identifier == "MoreDetailsSegue" {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            
+            let detailsViewController = segue.destinationViewController as! DetailsViewController
+            detailsViewController.tweets = tweet
+           
+/*        } else if segue.identifier == "profileSegue" {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+            profileViewController.tweets = tweet
+        } */
+         print("prepare for segue called")
     }
     
     /*
