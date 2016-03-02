@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -32,9 +33,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
        
-/*        tableView.delegate = self
+        tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = UITableViewAutomaticDimension */
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         
         TwitterClient.sharedInstance.userTimelineWithParams(nil) { (tweets, error) -> () in
@@ -51,7 +52,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         profilePhotoView.layer.cornerRadius = 5
         profilePhotoView.clipsToBounds = true
         
-//        profilePhotoView.setImageWithURL(NSURL(string:(tweets.user!.profileImageUrl)!)!)
+//        headerPhotoView.setImageWithURL(NSURL(string: (tweets.user!.profileBackgroundImageUrl)!)!)
+//        profilePhotoView.setImageWithURL(NSURL(string: (tweets.user!.profileImageUrl)!)!)
         
         
 //        favoriteCountLabel.text = "\(tweets.favoritesCount!)"
