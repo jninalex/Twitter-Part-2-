@@ -277,15 +277,15 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tmx-cB-jGM">
                                         <rect key="frame" x="0.0" y="0.0" width="106" height="55"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLO-Qq-p2G">
-                                                <rect key="frame" x="15" y="14" width="14" height="12"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TWEETS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez0-mF-vMP">
+                                                <rect key="frame" x="15" y="34" width="42" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RETWEETS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez0-mF-vMP">
-                                                <rect key="frame" x="15" y="34" width="54.5" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLO-Qq-p2G">
+                                                <rect key="frame" x="15" y="14" width="14" height="12"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -308,8 +308,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="LIKES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpj-KD-P0D">
-                                                <rect key="frame" x="21" y="34" width="28" height="12"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="FOLLOWING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpj-KD-P0D">
+                                                <rect key="frame" x="21" y="34" width="61" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -607,18 +607,18 @@
                     <connections>
                         <outlet property="accountsButton" destination="EgS-dA-pf3" id="edr-7g-m2q"/>
                         <outlet property="accountsButtonView" destination="wCf-9c-hlt" id="ExH-jj-SYZ"/>
-                        <outlet property="favoriteCountLabel" destination="TG3-wP-Lll" id="e49-Oe-GlM"/>
-                        <outlet property="favoriteLabel" destination="qpj-KD-P0D" id="HN1-Ei-Y27"/>
-                        <outlet property="followerCountLabel" destination="t57-9z-49E" id="34V-3x-NDz"/>
-                        <outlet property="followerLabel" destination="Eis-OG-CE6" id="ByN-5g-FAl"/>
                         <outlet property="headerControl" destination="ejV-oO-gyP" id="J9h-VA-HgT"/>
                         <outlet property="headerPhotoView" destination="tJc-bL-0Ns" id="pCu-7A-VVp"/>
                         <outlet property="profilePhotoView" destination="tJ1-Kj-PeM" id="BgX-e6-ZAb"/>
-                        <outlet property="retweetCountLabel" destination="eLO-Qq-p2G" id="K2m-on-6Uu"/>
-                        <outlet property="retweetLabel" destination="Ez0-mF-vMP" id="F55-vF-dKs"/>
                         <outlet property="settingsButton" destination="g6F-G8-ALr" id="8ce-nW-Cqp"/>
                         <outlet property="settingsButtonView" destination="UrJ-UU-rU8" id="bO3-T6-3jW"/>
                         <outlet property="tableView" destination="uID-wY-Uwj" id="Cdx-2f-LIk"/>
+                        <outlet property="userFollowerCountLabel" destination="t57-9z-49E" id="1jE-kk-dYc"/>
+                        <outlet property="userFollowerLabel" destination="Eis-OG-CE6" id="VTR-mb-uad"/>
+                        <outlet property="userFollowingCountLabel" destination="TG3-wP-Lll" id="xU0-xa-lXC"/>
+                        <outlet property="userFollowingLabel" destination="qpj-KD-P0D" id="0wT-jr-DKz"/>
+                        <outlet property="userTweetCountLabel" destination="eLO-Qq-p2G" id="sRr-mT-L8h"/>
+                        <outlet property="userTweetsLabel" destination="Ez0-mF-vMP" id="aQR-TJ-yWF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUP-nZ-DYF" userLabel="First Responder" sceneMemberID="firstResponder"/>

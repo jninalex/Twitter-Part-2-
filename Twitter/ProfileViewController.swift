@@ -18,16 +18,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var headerPhotoView: UIImageView!
     @IBOutlet weak var profilePhotoView: UIImageView!
     @IBOutlet weak var headerControl: UIPageControl!
-    @IBOutlet weak var retweetCountLabel: UILabel!
-    @IBOutlet weak var retweetLabel: UILabel!
-    @IBOutlet weak var favoriteCountLabel: UILabel!
-    @IBOutlet weak var favoriteLabel: UILabel!
-    @IBOutlet weak var followerCountLabel: UILabel!
-    @IBOutlet weak var followerLabel: UILabel!
+    
+    @IBOutlet weak var userTweetCountLabel: UILabel!
+    @IBOutlet weak var userTweetsLabel: UILabel!
+    @IBOutlet weak var userFollowingCountLabel: UILabel!
+    @IBOutlet weak var userFollowingLabel: UILabel!
+    @IBOutlet weak var userFollowerCountLabel: UILabel!
+    @IBOutlet weak var userFollowerLabel: UILabel!
+    
     @IBOutlet weak var settingsButtonView: UIView!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var accountsButtonView: UIView!
     @IBOutlet weak var accountsButton: UIButton!
+    
+    var coverPhoto: UIImage!
     
     
     override func viewDidLoad() {
@@ -52,34 +56,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         profilePhotoView.layer.cornerRadius = 5
         profilePhotoView.clipsToBounds = true
         
-//        headerPhotoView.setImageWithURL(NSURL(string: (tweets.user!.profileBackgroundImageUrl)!)!)
-//        profilePhotoView.setImageWithURL(NSURL(string: (tweets.user!.profileImageUrl)!)!)
+        let data = NSData(contentsOfURL: (User.currentUser?.coverPhotoUrl)!)
+        coverPhoto = UIImage(data: data!)
+        headerPhotoView.image = coverPhoto
+        
+        profilePhotoView.setImageWithURL(NSURL(string: (User.currentUser!.profileImageUrl)!)!)
         
         
-//        favoriteCountLabel.text = "\(tweets.favoritesCount!)"
-//        retweetCountLabel.text = "\(tweets.retweetCount!)"
+        userTweetCountLabel.text = "\(User.currentUser!.userTweetCount!)"
+        userFollowingCountLabel.text = "\(User.currentUser!.userFollowingCount!)"
+        userFollowerCountLabel.text = "\(User.currentUser!.userFollowerCount!)"
         
-        if favoriteCountLabel.text == "0" {
-            favoriteCountLabel.hidden = true
-            favoriteLabel.hidden = true
-        } else if favoriteCountLabel.text == "1" {
-            favoriteCountLabel.hidden = false
-            favoriteLabel.hidden = false
-            favoriteLabel.text = "FAVORITE"
-        } else {
-            favoriteLabel.text = "FAVORITES"
-        }
-        
-        if retweetCountLabel.text == "0" {
-            retweetCountLabel.hidden = true
-            retweetLabel.hidden = true
-        } else if retweetCountLabel.text == "1" {
-            retweetCountLabel.hidden = false
-            retweetLabel.hidden = false
-            retweetLabel.text = "RETWEET"
-        } else {
-            retweetLabel.text = "RETWEETS"
-        }
 
     }
     
@@ -99,8 +86,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let tweets = tweets {
-            return tweets.count
+        if tweets != nil  {
+            return (tweets?.count)!
         } else {
             return 0
         }

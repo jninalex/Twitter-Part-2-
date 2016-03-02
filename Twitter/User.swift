@@ -18,9 +18,17 @@ class User: NSObject {
     var name: String?
     var screenname: String?
     var profileImageUrl: String?
-    var profileBackgroundImageUrl: String?
+    var userPhotoUrl: NSURL?
     var tagline: String?
-    var dictionary: NSDictionary
+    var dictionary: NSDictionary?
+
+    
+    var userTweetCount: Int?
+    var userFollowerCount: Int?
+    var userFollowingCount: Int?
+    var profileBackgroundImageUrl: String?
+    var coverPhotoUrl: NSURL?
+    
     
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
@@ -29,7 +37,24 @@ class User: NSObject {
         screenname = dictionary["screen_name"] as? String
         profileImageUrl = dictionary["profile_image_url_https"] as? String
         tagline = dictionary["description"] as? String
-        profileBackgroundImageUrl = dictionary["profile_background_image_url"] as? String
+        
+        profileBackgroundImageUrl = dictionary["profile_background_image_url_https"] as? String
+        
+        userTweetCount = dictionary["statuses_count"] as? Int
+        userFollowerCount = dictionary["friends_count"] as? Int
+        userFollowingCount = dictionary["followers_count"] as? Int
+        
+        if profileImageUrl != nil {
+            userPhotoUrl = NSURL(string: profileImageUrl!)!
+        } else {
+            userPhotoUrl = nil
+        }
+        
+        if profileBackgroundImageUrl != nil {
+            coverPhotoUrl = NSURL(string: profileBackgroundImageUrl!)!
+        } else {
+            coverPhotoUrl = nil
+        }
     }
     
     func logout() {
@@ -65,7 +90,7 @@ class User: NSObject {
             if let _ = _currentUser {
                 var userData: NSData?
                 do {
-                    try userData = NSJSONSerialization.dataWithJSONObject(user!.dictionary, options: .PrettyPrinted)
+                    try userData = NSJSONSerialization.dataWithJSONObject(user!.dictionary!, options: .PrettyPrinted)
                     NSUserDefaults.standardUserDefaults().setObject(userData, forKey: currentUserKey)
                 } catch {
                     print(error)

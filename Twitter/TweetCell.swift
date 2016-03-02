@@ -26,7 +26,7 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
-            profilePhotoView.setImageWithURL(NSURL(string: (tweet.user!.profileImageUrl)!)!)
+            profilePhotoView.setImageWithURL((tweet.user!.userPhotoUrl)!)
             nameLabel.text = tweet.user?.name
             screennameLabel.text = "@\(tweet.user!.screenname!)"
             timestampLabel.text = tweet.timeSince

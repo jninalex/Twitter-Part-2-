@@ -39,7 +39,7 @@ class DetailsViewController: UIViewController {
         
         statsView.layer.borderColor = UIColor.blackColor().CGColor
         
-        profilePhotoView.setImageWithURL(NSURL(string:(tweets.user?.profileImageUrl)!)!)
+        profilePhotoView.setImageWithURL((tweets.user!.userPhotoUrl)!)
         nameLabel.text = tweets.user!.name!
         screennameLabel.text = "@\(tweets!.user!.screenname!)"
         tweetLabel.text = tweets.text!

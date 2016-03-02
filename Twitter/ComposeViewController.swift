@@ -33,7 +33,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate  {
         profilePhotoView.layer.cornerRadius = 5
         profilePhotoView.clipsToBounds = true
         
-        profilePhotoView.setImageWithURL(NSURL(string:(tweets.user!.profileImageUrl)!)!)
+        profilePhotoView.setImageWithURL((tweets.user!.userPhotoUrl)!)
         nameLabel.text = tweets.user!.name!
         screennameLabel.text = "@\(tweets!.user!.screenname!)"
         
